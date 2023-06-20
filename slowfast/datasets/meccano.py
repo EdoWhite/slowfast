@@ -173,6 +173,9 @@ class Meccano(torch.utils.data.Dataset):
                 name_frame = "000"+name_frame
             elif(len(name_frame) == 1): #add four prefix 0
                 name_frame = "0000"+name_frame
+
+            print(self.cfg.DATA.PATH_TO_DATA_DIR+"frames/"+self._path_to_videos[index]+"/"+name_frame+".jpg")
+
             image = Image.open(self.cfg.DATA.PATH_TO_DATA_DIR+"frames/"+self._path_to_videos[index]+"/"+name_frame+".jpg")
             image = np.asarray(image)
             frames.append(torch.from_numpy(image))
