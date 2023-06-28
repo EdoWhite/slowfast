@@ -91,7 +91,7 @@ def train_epoch(
             if not isinstance(labels, list):
                 labels = labels.cuda(non_blocking=True)
                 index = index.cuda(non_blocking=True)
-                time = time.cuda(non_blocking=True)
+                #time = time.cuda(non_blocking=True)
             for key, val in meta.items():
                 if isinstance(val, (list,)):
                     for i in range(len(val)):
@@ -320,7 +320,7 @@ def eval_epoch(
                 else:
                     meta[key] = val.cuda(non_blocking=True)
             index = index.cuda()
-            time = time.cuda()
+            #time = time.cuda()
         batch_size = (
             inputs[0][0].size(0)
             if isinstance(inputs[0], list)

@@ -174,8 +174,6 @@ class Meccano(torch.utils.data.Dataset):
             elif(len(name_frame) == 1): #add four prefix 0
                 name_frame = "0000"+name_frame
 
-            print(self.cfg.DATA.PATH_TO_DATA_DIR+"frames/"+self._path_to_videos[index]+"/"+name_frame+".jpg")
-
             image = Image.open(self.cfg.DATA.PATH_TO_DATA_DIR+"frames/"+self._path_to_videos[index]+"/"+name_frame+".jpg")
             image = np.asarray(image)
             frames.append(torch.from_numpy(image))
@@ -202,7 +200,7 @@ class Meccano(torch.utils.data.Dataset):
             )
         label = self._labels[index]
         frames = utils.pack_pathway_output(self.cfg, frames)
-        return frames, label, index, {}
+        return frames, label, index, {}, {}
 
     def __len__(self):
         """
